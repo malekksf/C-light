@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<title></title>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Varela+Round">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+		<link
+		rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+		<!--Custom styles-->
+		<link rel="stylesheet" type="text/css" href="{{ asset ('/assets/styles/navbar.css') }}">
+		<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="{{ asset ('assets/scripts/navbar.js')}}"></script>
+	</head>
+
+	<body>
+		{% block body %}
+			<nav
+				class="navbar navbar-expand-lg navbar-dark bg-dark">
+				{# <i class="fa fa-lightbulb-o" aria-hidden="true"></i> #}
+				<div class="logo">
+					<img src="{{ asset ('/assets/images/lamp.png') }}" alt="logo">
+				</div>
+				<button
+					type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+					{# <span class="navbar-toggler-icon"></span> #}
+					<img src="{{ asset ('/assets/images/menu.svg') }}" alt="logo"></button>
+				<!-- Collection of nav links, forms, and other content for toggling -->
+				<div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
+					<div class="navbar-nav">
+						<a href="{{path('default')}}" class="nav-item nav-link">Home</a>
+						<div class="nav-item dropdown">
+							<a href="#" data-toggle="dropdown" class="nav-item nav-link dropdown-toggle">Categories</a>
+							<div class="dropdown-menu">
+								<a href="#" class="dropdown-item">Web Development</a>
+								<a href="#" class="dropdown-item">DevOps</a>
+								<a href="#" class="dropdown-item">IOT</a>
+								<a href="#" class="dropdown-item">Data Science</a>
+								<a href="#" class="dropdown-item">Security</a>
+							</div>
+						</div>
+						<a href="#" class="nav-item nav-link active">About</a>
+						{% if app.user %}
+							<a href="{{ path('app_logout') }}" class="nav-item nav-link">Logout
+								<b>{{ app.user.username }}</b>
+							</a>
+						{% else %}
+							<a href="{{ path('app_login') }}" class="nav-item nav-link">Login</a>
+							<a href="{{ path('app_signup') }}" class="nav-item nav-link">Signup</a>
+						{% endif %}
+					</div>
+					<div class="navbar-nav ml-auto">
+						<div class="nav-item dropdown search-dropdown">
+							<a data-toggle="dropdown" class="nav-item nav-link dropdown-toggle" href="#">
+								<i class="fa fa-search"></i>
+							</a>
+							<a data-toggle="dropdown" class="nav-item nav-link dropdown-toggle d-none" href="#">
+								<i class="fa fa-close"></i>
+							</a>
+							<div class="dropdown-menu">
+								<div>
+									<form>
+										<div class="input-group search-box">
+											<input type="text" id="search" class="form-control" placeholder="Search here...">
+											<div class="input-group-append">
+												<button type="button" class="btn btn-primary">
+													<i class="fa fa-search"></i>
+												</button>
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</nav>
+		{% endblock %}
+	</body>
+</html>
+{% block slides %}{% endblock %}

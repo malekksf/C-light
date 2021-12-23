@@ -1,0 +1,19 @@
+.card-img, .card-img-top {
+    border-top-left-radius: calc(.25rem - 1px);
+    border-top-right-radius: calc(.25rem - 1px);
+    width: 50%;
+}
+
+.card-img-top {
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    width: 50%;
+    align-self: center;
+}
+
+.card-img-wp {
+    width: 40%;
+    height: 30%;
+    align-self: center;
+}
+

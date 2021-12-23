@@ -1,0 +1,219 @@
+{% extends 'base.html.twig' %}
+{% block slides %}
+	<!DOCTYPE html>
+	<html>
+		<head>
+			<meta
+			name="viewport" content="width=device-width, initial-scale=1">
+			<!-- Add the slick-theme.css if you want default styling -->
+			<link
+			rel="stylesheet" type="text/css" href="{{asset ('/assets/vendor/slicks/slick.css')}}"/>
+			<!-- Add the slick-theme.css if you want default styling -->
+			<link rel="stylesheet" type="text/css" href="{{asset ('/assets/vendor/slicks/slick-theme.css')}}"/>
+			<link
+			rel="stylesheet" type="text/css" href="{{ asset ('/assets/styles/slides.css') }}">
+			<!--Rating-->
+			<link
+			rel="stylesheet" href="{{asset ('/assets/styles/rating.css')}}">
+			<!-- Footer -->
+			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+			<link rel="stylesheet" type="text/css" href="{{asset('/assets/styles/footer.css')}}">
+		</head>
+		<body>
+			<script type="text/javascript" src="{{asset ('/assets/vendor/slicks/slick.min.js')}}"></script>
+			<script type="text/javascript" src="{{ asset ('assets/scripts/slides.js')}}"></script>
+			<div class="slideshow">
+				<div class="slider-home">
+					<div class="item">
+						<img src="/assets/images/security.jpg"/>
+					</div>
+					<div class="item">
+						<img src="/assets/images/iot.jpg"/>
+					</div>
+					<div class="item">
+						<img src="/assets/images/devops.jpeg"/>
+					</div>
+					<div class="item">
+						<img src="/assets/images/data-science.jpg"/>
+					</div>
+				</div>
+			</div>
+			<h3>
+				<center>
+					<i>“Push yourself because , no one else is going to do it for you!”</i>
+				</center>
+			</h3>
+			<br>
+			<br>
+
+			<h2>Recommendations</h2>
+			<link rel="stylesheet" type="text/css" href=" {{ asset ('/assets/styles/cards.css') }}">
+			<div class=" card-deck">
+
+				{% for course in courses %}
+					<div class="card">
+						<img class="card-img-top" src={{course.image }} alt="Card image cap" styles="width:80%">
+						<div class="card-body">
+							<h5 class="card-title">
+								<a href="{{ path('single_course', {'id' : course.id}) }}">{{ course.name }}</a>
+							</h5>
+							<p class="card-text">{{ course.description }}</p>
+							<p class="card-text">
+								<small class="text-muted">{{course.views}}
+									views</small>
+							</p>
+
+							<script src="{{ asset ('/assets/vendor/rating/rating.js')}}"></script>
+							<script src="{{ asset ('/assets/scripts/ratingStars.js')}}"></script>
+							<div class="star-widget">
+								<input type="radio" name="rate" id="rate-5">
+								<label for="rate-5" class="fas fa-star"></label>
+								<input type="radio" name="rate" id="rate-4">
+								<label for="rate-4" class="fas fa-star"></label>
+								<input type="radio" name="rate" id="rate-3">
+								<label for="rate-3" class="fas fa-star"></label>
+								<input type="radio" name="rate" id="rate-2">
+								<label for="rate-2" class="fas fa-star"></label>
+								<input type="radio" name="rate" id="rate-1">
+								<label for="rate-1" class="fas fa-star"></label>
+							</div>
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+
+
+			<br><h2>
+				<b>TOP Categories</b>
+			</h2>
+			<link rel="stylesheet" type="text/css" href=" {{ asset ('/assets/styles/flip-cards.css') }}">
+			<div class="container-fluid">
+				<div class="row">
+
+					<ul>
+						{% for category in categories %}
+							<li>{{ category.name }}</li>
+						{% endfor %}
+					</ul>
+					<div class="col-lg-3 col-md-4 col-s-6 col-xs-12">
+						<div class="flip-card">
+							<div class="flip-card-inner">
+								<div class="flip-card-front">
+									<img src="/assets/images/IOT.jpg" alt="Avatar" style="width:300px;height:auto;">
+								</div>
+								<div class="flip-card-back">
+									<p>
+										<center>Let's make life much easier with having the ability of controlling everything !<br>
+											:)</center>
+										<div class="container">
+											<button class="btn">Explore</button>
+										</div>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-lg-3 col-md-4 col-s-6 col-xs-12">
+						<div class="flip-card">
+							<div class="flip-card-inner">
+								<div class="flip-card-front">
+									<img src="/assets/images/devops-card2.jpg" alt="Avatar" style="height:200px;">
+								</div>
+								<div class="flip-card-back">
+									<p>
+										<center>Let's make life much easier with having the ability of controlling everything !<br>
+											:)</center>
+										<div class="container">
+											<button class="btn">Explore</button>
+										</div>
+									</p>
+
+
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-lg-3 col-md-4 col-s-6 col-xs-12">
+						<div class="flip-card">
+							<div class="flip-card-inner">
+								<div class="flip-card-front">
+									<img src="/assets/images/webdev.jpg" alt="Avatar" style="width:300px;height:auto;">
+								</div>
+								<div class="flip-card-back">
+									<p>
+										<center>Let's make life much easier with having the ability of controlling everything !<br>
+											:)</center>
+										<div class="container">
+											<button class="btn">Explore</button>
+										</div>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-lg-3 col-md-4 col-s-6 col-xs-12">
+						<div class="flip-card">
+							<div class="flip-card-inner">
+								<div class="flip-card-front">
+									<img src="/assets/images/security-card.jpg" alt="Avatar" style="width:300px;height:auto;">
+								</div>
+								<div class="flip-card-back">
+									<p>
+										<center>Let's make life much easier with having the ability of controlling everything !<br>
+											:)</center>
+										<div class="container">
+											<button class="btn">Explore</button>
+										</div>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!--Footer-->
+			<div class="footer-basic">
+				<footer>
+					<div class="social">
+						<a href="#">
+							<i class="icon ion-social-instagram"></i>
+						</a>
+						<a href="#">
+							<i class="icon ion-social-snapchat"></i>
+						</a>
+						<a href="#">
+							<i class="icon ion-social-twitter"></i>
+						</a>
+						<a href="#">
+							<i class="icon ion-social-facebook"></i>
+						</a>
+					</div>
+					<ul class="list-inline">
+						<li class="list-inline-item">
+							<a href="#">Home</a>
+						</li>
+						<li class="list-inline-item">
+							<a href="#">Services</a>
+						</li>
+						<li class="list-inline-item">
+							<a href="#">About</a>
+						</li>
+						<li class="list-inline-item">
+							<a href="#">Terms</a>
+						</li>
+						<li class="list-inline-item">
+							<a href="#">Privacy Policy</a>
+						</li>
+					</ul>
+					<p class="copyright">C-light © 2021</p>
+				</footer>
+			</div>
+
+		</body>
+	</html>
+{% endblock %}

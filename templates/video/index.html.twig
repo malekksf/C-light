@@ -1,0 +1,7 @@
+{% extends 'base.html.twig' %}
+{% block slides %}
+	{% for video in videos %}
+		<p>{{ video.name }}</p>
+		<p>{{ video.url }}</p>
+	{% endfor %}
+{% endblock %}

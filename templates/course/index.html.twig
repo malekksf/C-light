@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+{% block slides %}
+	<!DOCTYPE html>
+	<html>
+		<head>
+			<link rel="stylesheet" type="text/css" href="{{ asset ('/assets/styles/videos-list.css') }}">
+			<link rel="stylesheet" type="text/css" href="{{ asset ('/assets/styles/video-sharp.css') }}">
+		</head>
+
+		<h5>
+			<i>Level up your
+				<b>{{ course.name }}</b>
+				skills !</i>
+		</h5>
+		<figure class="video">
+			<iframe src="{{course.trailer}}"></iframe>
+		</figure>
+
+		<p>
+			<i class="fas fa-user-graduate"></i>
+			Views :
+			<b>{{ course.views }}</b>
+		</p>
+		<p>Category :
+			{{ course.categorie.name }}</p>
+		<p>{{ course.description }}</p>
+		<br>
+		<div class="table">
+			<table>
+				<center>
+					<tr>
+						<th>Videos</th>
+						<th>Links</th>
+					</tr>
+					{% for video in videos %}
+						<tr>
+							<td>{{ video.name }}</td>
+							<td>{{video.url}}</td>
+						</tr>
+					{% endfor %}
+				</center>
+			</table>
+		</div>
+	</html>
+{% endblock %}
